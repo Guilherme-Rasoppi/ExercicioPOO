@@ -1,21 +1,17 @@
-class aluno(var nome: String, var sobrenome: String){
+class Aluno(var nome: String, var sobrenome: String){
     var ra = 0
-    var nota = 0
+    var nota = 0.0
     var ano = 0
     val aprovado : Boolean
         get(){
-            if (nota >= 60){
-                return true
-            }else{
-                return false
-            }
+            return nota >= 60
         }
     constructor(nome: String, sobrenome: String, ra: Int) :
             this(nome, sobrenome){
                this.ra = ra
             }
 
-    constructor(nome: String, sobrenome: String, ra: Int, nota: Int, ano: Int):
+    constructor(nome: String, sobrenome: String, ra: Int, nota: Double, ano: Int):
             this(nome, sobrenome, ra){
                 this.nota = nota
                 this.ano = ano
