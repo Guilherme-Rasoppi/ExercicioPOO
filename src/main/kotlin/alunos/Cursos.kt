@@ -1,12 +1,13 @@
-class Cursos(val nomeCurso: String, var serie: Int, var prof: String){
+package alunos
+
+import Aluno
+import java.time.temporal.TemporalQuery
+
+class Cursos( private val nomeCurso: String, private var serie: Int, private var prof: String){
 
     val listaEstudateMatricula = mutableListOf<Aluno?>()
 
-    fun mostrarEstudante(){
-        for (i in listaEstudateMatricula){
-            println(i?.nome)
-        }
-    }
+
 
     fun cadastrar(aluno: Aluno?){
         listaEstudateMatricula.add(aluno)
@@ -20,13 +21,17 @@ class Cursos(val nomeCurso: String, var serie: Int, var prof: String){
         println("Alunos cadastrados com sucesso!")
     }
 
-    fun remover(aluno: Aluno?){
-        if (listaEstudateMatricula.contains(aluno)){
+    fun verificaAluno(verificaAluno: String){
+            fun remover(aluno: Aluno?){
+             if (verificaAluno != ""){
+            (listaEstudateMatricula.contains(aluno))
             listaEstudateMatricula.remove(aluno)
             println("O Aluno foi removido com sucesso!")
-        }else{
-            println("Esse aluno não existe na lista")
+            }else{
+                throw Exception("Esse aluno não existe na lista")
+            }
         }
+
     }
     fun contAluno(): Int{
         println("O número de Alunos casdastrados no curso é" +
@@ -36,7 +41,7 @@ class Cursos(val nomeCurso: String, var serie: Int, var prof: String){
     fun melhorNota(){
         var melhorNota: Double? = listaEstudateMatricula[0]?.nota
         for (i in listaEstudateMatricula){
-            if (i?.nota!! > melhorNota!!){
+            if (i?. nota!! > melhorNota!!){
                melhorNota = i.nota
             }
         }

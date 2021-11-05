@@ -1,4 +1,7 @@
+import alunos.Cursos
+
 fun main(args: Array<String>) {
+
 
 
     val pedro = Aluno("Pedro", "Silva", 76557, 75.0, 7)
@@ -17,7 +20,7 @@ fun main(args: Array<String>) {
 
     cursoIngles.contAluno()
 
-    cursoIngles.remover(gabriel)
+
 
     val aluno: Array<Aluno?> = arrayOf(pedro, maria)
 
@@ -27,7 +30,23 @@ fun main(args: Array<String>) {
 
     cursoIngles.melhorNota()
 
-    cursoIngles.mostrarEstudante()
+
+
+    val consulta = Aluno("", "")
+
+    println("Qual o nome do Aluno: ")
+    var nome = readLine()!!
+
+    try {
+        cursoIngles.verificaAluno(nome)
+        println("O Aluno foi removido com sucesso!")
+    }catch (e: Exception){
+        println(e.message)
+    }
+
+
+
+
 
 
 
