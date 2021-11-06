@@ -5,9 +5,13 @@ import java.time.temporal.TemporalQuery
 
 class Cursos( private val nomeCurso: String, private var serie: Int, private var prof: String){
 
-    val listaEstudateMatricula = mutableListOf<Aluno?>()
+    private val listaEstudateMatricula = mutableListOf<Aluno?>()
 
-
+    fun mostraEstudante(){
+        for (i in listaEstudateMatricula){
+            println(i?.nome)
+        }
+    }
 
     fun cadastrar(aluno: Aluno?){
         listaEstudateMatricula.add(aluno)
@@ -21,18 +25,17 @@ class Cursos( private val nomeCurso: String, private var serie: Int, private var
         println("Alunos cadastrados com sucesso!")
     }
 
-    fun verificaAluno(verificaAluno: String){
-            fun remover(aluno: Aluno?){
-             if (verificaAluno != ""){
-            (listaEstudateMatricula.contains(aluno))
+
+    fun remover(aluno: Aluno?){
+             if (listaEstudateMatricula.contains(aluno)){
             listaEstudateMatricula.remove(aluno)
             println("O Aluno foi removido com sucesso!")
             }else{
-                throw Exception("Esse aluno não existe na lista")
+                println("Esse aluno não existe na lista")
             }
         }
 
-    }
+
     fun contAluno(): Int{
         println("O número de Alunos casdastrados no curso é" +
                 "${listaEstudateMatricula}")
@@ -47,6 +50,14 @@ class Cursos( private val nomeCurso: String, private var serie: Int, private var
         }
         println("A maior nota do curso é $melhorNota")
     }
+    fun verificaAluno(aluno: Aluno?){
+        if(listaEstudateMatricula.contains(aluno)){
+            println("Esse estudante existe")
+        }else{
+            throw Exception("O aluno não existe na lista")
+        }
+    }
 
 }
+
 

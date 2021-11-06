@@ -32,13 +32,8 @@ fun main(args: Array<String>) {
 
 
 
-    val consulta = Aluno("", "")
-
-    println("Qual o nome do Aluno: ")
-    var nome = readLine()!!
-
     try {
-        cursoIngles.verificaAluno(nome)
+        cursoIngles.verificaAluno(gabriel)
         println("O Aluno foi removido com sucesso!")
     }catch (e: Exception){
         println(e.message)

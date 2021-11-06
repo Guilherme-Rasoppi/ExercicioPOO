@@ -1,8 +1,8 @@
-class Aluno(private var nome: String, private var sobrenome: String){
-      var ra = 0
-      var nota = 0.0
-      var ano = 0
-     val aprovado : Boolean
+class Aluno( var nome: String, private var sobrenome: String){
+     private var ra = 0
+     var nota = 0.0
+     private var ano = 0
+     private val aprovado : Boolean
         get(){
             return nota >= 60
         }
